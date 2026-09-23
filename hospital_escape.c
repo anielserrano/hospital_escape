@@ -113,6 +113,7 @@ int main(void) {
            
                 items[0] = 1;
             }
+            
             else {
             
                 printf("You already searched this room and took the keycard.\n");
