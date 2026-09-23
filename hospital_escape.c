@@ -81,6 +81,7 @@ int main(void) {
          
         
         if (choice == 1) {
+            
             printf("\n====================================\n");
             printf("            PHARMACY ROOM\n");
             printf("====================================\n");
@@ -101,6 +102,7 @@ int main(void) {
         }
 
         else if (choice == 4) {
+            
             printf("\n====================================\n");
             printf("            HOSPITAL ROOM\n");
             printf("====================================\n");
