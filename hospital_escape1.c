@@ -102,17 +102,17 @@ int main(void) {
         }
 
         else if (choice == 2) {
-
+            // maliks part
             printf("\n====================================\n");
             printf("            OPERATING ROOM\n");
             printf("====================================\n");
-            // checks if the player has the flashlight
+            // checks if the player has the flashlight 
             if (items[1] == 0) {
 
                 printf("it is too dark to see anything.\n");
                 printf("Maybe you need something to light up the room.\n");
             }
-            // gives the player the security code
+            // Gives the player the security code.
             else if (items[2] == 0) {
 
                 printf("You use the flashlight and search the room\n");
@@ -120,7 +120,7 @@ int main(void) {
 
                 items[2] = 1;
             }
-
+            // If player returns to room already having the security code.
             else {
 
                 printf("You already searched this room and took the security code.\n");
@@ -130,11 +130,11 @@ int main(void) {
         }
 
         else if (choice == 3) {
-
+            // Malik's part
             printf("\n====================================\n");
             printf("            SECURITY ROOM\n");
             printf("====================================\n");
-
+            // make sure that the player has both required item.
             if (items[0] == 1 && items[2] == 1) {
 
                 printf("You use the keycard and enter the security code.\n");
@@ -143,7 +143,7 @@ int main(void) {
 
                 gameOver = 1;
             }
-
+            // Responses if player doesn't have one of the required items.
             else {
 
                 printf("The exit door is locked.\n");
