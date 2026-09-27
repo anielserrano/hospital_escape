@@ -13,11 +13,16 @@ Aniel and Malik
 int main(void) {
     int choice = 0;
     int gameOver = 0;
+    
+    // Keep tracks of the player's items.
     int items[3] = {0, 0, 0};
+    
     int playAgain = 1;
 
+    // Repeats the game if the player wants to play again.
     while (playAgain == 1) {
-
+        
+        // Resets the game.
         choice = 0;
         gameOver = 0;
         items[0] = 0;
@@ -32,7 +37,9 @@ int main(void) {
     printf("The room is dark and the building is silent.\n");
     printf("You need to find a way to escape.\n");
     printf("You look around the hospital room.\n\n");
-
+    
+    // Aniels part
+    // Keeps asking until the player picks 1 or 2.
     while (choice !=1 && choice !=2) {
 
         printf("\n------------------------------------\n");
@@ -48,7 +55,8 @@ int main(void) {
         
             printf("You search the room and found a keycard!\n");
             printf("You put the keycard in your pocket and enter the hallway.\n");
-        
+            
+            // Saves the keycard.
             items[0] = 1;
         }
     
@@ -56,13 +64,16 @@ int main(void) {
         
             printf("You leave the room and enter the hallway.\n");
         }
-    
+        
+        // Choice will be invalid if it isn't 1 or 2
         else {
         
             printf("Invalid choice.\n\n");
         }
     }    
-
+    
+    // Shows the hallway introduction once.
+    // Aniels part
     printf("\n====================================\n");
     printf("            MAIN HALLWAY\n");
     printf("====================================\n");
@@ -73,7 +84,8 @@ int main(void) {
     printf("Straight ahead is the Operating Room.\n");
     printf("To your right is a door that says Security Room.\n");
     printf("Or go back to the Hospital Room.\n\n");
-        
+    
+    // Keeps the game going until the player escapes.
     while (gameOver == 0) {
 
         printf("\n------------------------------------\n");
@@ -87,18 +99,21 @@ int main(void) {
     
         scanf("%d", &choice);
         printf("\n"); 
-         
+
         
+        // Aniels Part
         if (choice == 1) {
             
             printf("\n====================================\n");
             printf("            PHARMACY ROOM\n");
             printf("====================================\n");
 
+            // Checks if the flashlights was already found.
             if (items[1] == 0) {
             
                 printf("You search around the room and found a flashlight!\n");
-            
+                
+                // Saves the flashlight.
                 items[1] = 1;
             }
         
@@ -110,23 +125,27 @@ int main(void) {
             printf("You return back to the main hallway.\n");
         }
 
+        // Maliks Part
         else if (choice == 2) {
 
             printf("\n====================================\n");
             printf("            OPERATING ROOM\n");
             printf("====================================\n");
-            // checks if the player has the flashlight
+            
+            // Checks if the player has the flashlight.
             if (items[1] == 0) {
 
                 printf("it is too dark to see anything.\n");
                 printf("Maybe you need something to light up the room.\n");
             }
-            // gives the player the security code
+            
+            // Gives the player the security code.
             else if (items[2] == 0) {
 
                 printf("You use the flashlight and search the room\n");
                 printf("You found a paper with the security code on it!\n");
 
+                // Saves the security code.
                 items[2] = 1;
             }
 
@@ -138,21 +157,25 @@ int main(void) {
             printf("You return back to the main hallway.\n");
         }
 
+        // Maliks Part
         else if (choice == 3) {
 
             printf("\n====================================\n");
             printf("            SECURITY ROOM\n");
             printf("====================================\n");
-
+            
+            // Make sure that the player has both required item.
             if (items[0] == 1 && items[2] == 1) {
 
                 printf("You use the keycard and enter the security code.\n");
                 printf("the exit door unlocks and you escape the hospital.\n");
                 printf("You win!\n");
 
+                // Ends the current game.
                 gameOver = 1;
             }
-
+            
+            // Responses if the player doesn't have one of the required items.
             else {
 
                 printf("The exit door is locked.\n");
@@ -171,16 +194,19 @@ int main(void) {
             }
         }
 
+        // Aniels part
         else if (choice == 4) {
             
             printf("\n====================================\n");
             printf("            HOSPITAL ROOM\n");
             printf("====================================\n");
         
+            // Lets the player find a missed key card.
             if (items[0] == 0) {
             
                 printf("You search around the room and found the keycard.\n");
-           
+                
+                // Saves the Keycard.
                 items[0] = 1;
             }
             
@@ -191,8 +217,15 @@ int main(void) {
         
             printf("You return back to the main hallway.\n");
         }
-    }
 
+           // Handles numbers other than 1 through 4.
+            else {
+
+                printf("Invalid choice. Please choose 1, 2, 3, or 4.\n");
+            }
+        }
+        
+    // Asks if the player wants to restart.
     printf("\n------------------------------------\n");
     printf("Would you like to play again?\n");
         printf("1. Yes\n");
